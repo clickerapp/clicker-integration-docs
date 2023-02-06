@@ -1,10 +1,24 @@
-image: ruby:2.7
+image: python:3.8-buster
 
-pages:
+before_script:
+  - pip install -r requirements.txt
+
+test:
+  stage: test
   script:
-    - gem install bundler
-    - bundle install
-    - bundle exec jekyll build -d public
+  - mkdocs build --strict --verbose --site-dir test
   artifacts:
     paths:
-      - public
+    - test
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+
+pages:
+  stage: deploy
+  script:
+  - mkdocs build --strict --verbose
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
