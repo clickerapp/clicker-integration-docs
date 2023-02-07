@@ -1,5 +1,5 @@
 # Публличная документация Clicker
 
-- [Public api](/public-api)
-- [SMM](/smm-doc)
-- [Виджеты](/widgets)
+- [Public api](/integration-docs/public-api)
+- [SMM](/integration-docs/smm-doc)
+- [Виджеты](/integration-docs/widgets)
