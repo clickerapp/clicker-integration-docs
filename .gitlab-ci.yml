@@ -19,6 +19,6 @@ pages:
     - gitbook build # build to public path
   artifacts:
     paths:
-      - public 
+      - public
   only:
-    - pages # this job will affect only the 'pages' branch
+    - main # this job will affect only the 'main' branch
