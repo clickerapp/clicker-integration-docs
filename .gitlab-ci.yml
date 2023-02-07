@@ -1,24 +1,29 @@
-# requiring the environment of NodeJS 4.2.2
-image: node:4.2.2
+image: ruby:latest
 
-# add 'node_modules' to cache for speeding up builds
-cache:
-  paths: 
-    - node_modules/ # Node modules and dependencies
+variables:
+  JEKYLL_ENV: production
+  LC_ALL: C.UTF-8
 
 before_script:
-  - npm install gitbook-cli -g # install gitbook
-  - gitbook fetch latest # fetch latest stable version
-  #- gitbook fetch pre # fetch latest pre-release version
-  #- gitbook fetch 2.6.7 # fetch specific version
+  - gem install bundler
+  - bundle install
 
-# the 'pages' job will deploy and build your site to the 'public' path
+test:
+  stage: test
+  script:
+  - bundle exec jekyll build -d test
+  artifacts:
+    paths:
+    - test
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+
 pages:
   stage: deploy
   script:
-    - gitbook build # build to public path
+  - bundle exec jekyll build -d public
   artifacts:
     paths:
-      - public
-  only:
-    - main # this job will affect only the 'main' branch
+    - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
