@@ -7,10 +7,13 @@
     <h1>Hello World!</h1>
     <div id="content"></div>
     <script>
-      const converter = new showdown.Converter(),
-        text = "# hello, markdown!",
-        html = converter.makeHtml(text);
-      document.querySelector("#content").innerHTML = html;
+      const init = async () => {
+        const text = await fetch("/public/widgets.md").then((res) => res.text());
+        const converter = new showdown.Converter();
+        const html = converter.makeHtml(text);
+        document.querySelector("#content").innerHTML = html;
+      };
+      init();
     </script>
   </body>
 </html>
