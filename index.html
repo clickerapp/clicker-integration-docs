@@ -8,7 +8,7 @@
     <div id="content"></div>
     <script>
       const init = async () => {
-        const text = await fetch("/public/widgets.md").then((res) => res.text());
+        const text = await fetch("/widgets2.md").then((res) => res.text());
         const converter = new showdown.Converter();
         const html = converter.makeHtml(text);
         document.querySelector("#content").innerHTML = html;
