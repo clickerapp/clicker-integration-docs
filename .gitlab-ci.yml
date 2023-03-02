@@ -7,7 +7,7 @@ cache:
 
 stages:
   - deploy
-  -
+
 pages:
   stage: deploy
   script:
