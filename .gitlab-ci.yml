@@ -14,6 +14,8 @@ pages:
     - npm i -g create-docusaurus
     - npm i
     - npm run build
+    - mv ./build ../public
+
   artifacts:
     paths:
-      - build/
+      - public/
