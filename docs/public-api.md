@@ -510,7 +510,7 @@ GET https://api.clicker.one/v1/services?shopId=superShop&city=Moscow
 }
 ```
 
-**services** - массив найденных подходящих услуг. Услуга состоит из:
+**response** - массив найденных подходящих услуг. Услуга состоит из:
 
 **id** - id услуги. Будет необходим при создании заказа
 
@@ -529,7 +529,7 @@ GET https://api.clicker.one/v1/services?shopId=superShop&city=Moscow
 ```json
 {
 	"status": "OK",
-  "services": [
+  "response": [
     {
       "id": "1586179958241xxx8539406150374410",
       "name": "Установка электрического духового шкафа",
