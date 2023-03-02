@@ -503,8 +503,8 @@ GET https://api.clicker.one/v1/services?shopId=superShop&city=Moscow
     id: string;
     name: string;
     description?: string;
-    includedWorks?: string[];
-    notIncludedWorks?: string[];
+    includedWorks: string[];
+    notIncludedWorks: string[];
     price: number;
   }>;
 }
