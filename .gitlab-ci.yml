@@ -13,6 +13,7 @@ pages:
   script:
     - npm i -g create-docusaurus
     - npm i
+    - npm run build
   artifacts:
     paths:
       - build/
