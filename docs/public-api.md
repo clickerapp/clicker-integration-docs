@@ -510,14 +510,14 @@ GET https://api.clicker.one/v1/services?shopId=superShop&lat=55.371636&lon=38.11
       priceForCustomer: number;
       category: string;
     }>;
-    longDistanceTripService: {
+    longDistanceTripService?: {
       ...
     }
   }
 }
 ```
 
-**longDistanceTripService** - услуга, отвечающая за стоимость одного километра доставки за пределами границ города; объект услуги идентичен экземпляру в массиве services (см. далее)
+**longDistanceTripService** - услуга, отвечающая за стоимость одного километра доставки за пределами границ города; объект услуги идентичен экземпляру в массиве services (см. далее). Не придёт при пустом массиве services, когда запрошен город (или точка), в котором не присутствует переданный магазин (shopId).
 
 **services** - массив найденных подходящих услуг. Услуга состоит из:
 
