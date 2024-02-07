@@ -25,15 +25,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install Dependencies
-        run: npm install
+      - name: create-docusaurus
+        run: npm i -g create-docusaurus
 
-      - name: Build
+      - name: i
+        run: npm i
+
+      - name: build
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.1
         with:
-          branch: gh-pages  # Ветка GitHub Pages
-          folder: build  # Папка с собранным сайтом
-          clean: true  # Очистка истории ветки gh-pages
+          branch: gh-pages
+          folder: build
+          clean: true
