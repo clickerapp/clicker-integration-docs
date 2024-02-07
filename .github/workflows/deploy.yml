@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.15'  # Указываем версию Node.js
+          node-version: '16.15'
 
       - name: Cache Node modules
         uses: actions/cache@v3
@@ -37,6 +37,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.1
         with:
-          branch: gh-pages
+          branch: main
           folder: build
-          clean: true
